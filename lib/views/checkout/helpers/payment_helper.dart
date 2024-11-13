@@ -17,13 +17,6 @@ double totalPrice = 1.00;
 /// bKash
 
 final bkash = Bkash(
-  bkashCredentials: const BkashCredentials(
-    username: '01750387497',
-    password: 'Z7+i9YS8o9Z',
-    appKey: 'sGVwP9DLmuOIvcumTixdcS7gtc',
-    appSecret: '9DvpRRNZTi1K0mUVAe7MgFz5FdZvdkHvnywZQMX7eT6zZknr3e16',
-    isSandbox: false,
-  ),
   logResponse: true,
 );
 
