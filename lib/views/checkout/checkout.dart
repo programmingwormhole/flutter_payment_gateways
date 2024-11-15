@@ -17,6 +17,11 @@ class _CheckoutState extends State<Checkout> {
       'logo':
           'https://logos-download.com/wp-content/uploads/2022/01/BKash_Logo_icon.png',
     },
+    {
+      'name': 'UddoktaPay',
+      'logo':
+      'https://uddoktapay.com/assets/images/xlogo-icon.png.pagespeed.ic.IbVircDZ7p.png',
+    },
   ];
 
 
