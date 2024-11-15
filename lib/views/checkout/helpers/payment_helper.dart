@@ -1,4 +1,4 @@
-// import 'package:bkash/bkash.dart';
+import 'package:bkash/bkash.dart';
 import 'package:get/get.dart';
 import 'package:uddoktapay/models/customer_model.dart';
 import 'package:uddoktapay/models/request_response.dart';
