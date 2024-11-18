@@ -35,8 +35,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-  bkash: ^0.0.1
+  bkash:
+    git:
+      url: https://github.com/programmingwormhole/bKash.git
   get:
+  uddoktapay: ^0.0.4
 
 dev_dependencies:
   flutter_test:
