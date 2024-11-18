@@ -18,6 +18,7 @@ This repository contains sample code and comprehensive tutorials for integrating
 
 ## 😍 Available Gateways
 - **bKash** (Bangladeshi Payment Gateway)
+- **UddoktaPay** (Bangladeshi Payment Automation Solution)
 
 ## 🚀 Getting Started
 
