@@ -12,12 +12,11 @@ packages:
   bkash:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: e1dd83bce71c35c4e3b16ec22bfaf683cd51ef82
-      url: "https://github.com/programmingwormhole/bKash.git"
-    source: git
-    version: "0.0.1"
+      name: bkash
+      sha256: "0648a5819a38217ba6e822343462073659b3269730a0b9a92993c368fc4682f3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   boolean_selector:
     dependency: transitive
     description:
