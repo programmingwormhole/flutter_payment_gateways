@@ -38,6 +38,7 @@ dependencies:
   bkash: ^0.0.2
   get:
   uddoktapay: ^0.0.4
+  flutter_sslcommerz: ^2.3.6
 
 dev_dependencies:
   flutter_test:

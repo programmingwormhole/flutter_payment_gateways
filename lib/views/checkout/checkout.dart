@@ -22,6 +22,11 @@ class _CheckoutState extends State<Checkout> {
       'logo':
       'https://uddoktapay.com/assets/images/xlogo-icon.png.pagespeed.ic.IbVircDZ7p.png',
     },
+    {
+      'name': 'SslCommerz',
+      'logo':
+      'https://apps.odoo.com/web/image/loempia.module/193670/icon_image?unique=c301a64',
+    },
   ];
 
 
