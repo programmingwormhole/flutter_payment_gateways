@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payment_gateways/views/checkout/checkout.dart';
+import 'package:shurjopay/utilities/functions.dart';
 
 void main() {
+  initializeShurjopay(environment: 'sandbox');
   runApp(const MyApp());
 }
 

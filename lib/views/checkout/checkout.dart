@@ -15,20 +15,24 @@ class _CheckoutState extends State<Checkout> {
     {
       'name': 'bKash',
       'logo':
-          'https://logos-download.com/wp-content/uploads/2022/01/BKash_Logo_icon.png',
+          'https://freelogopng.com/images/all_img/1656234841bkash-icon-png.png',
     },
     {
       'name': 'UddoktaPay',
       'logo':
-      'https://uddoktapay.com/assets/images/xlogo-icon.png.pagespeed.ic.IbVircDZ7p.png',
+          'https://uddoktapay.com/assets/images/xlogo-icon.png.pagespeed.ic.IbVircDZ7p.png',
     },
     {
       'name': 'SslCommerz',
       'logo':
-      'https://apps.odoo.com/web/image/loempia.module/193670/icon_image?unique=c301a64',
+          'https://apps.odoo.com/web/image/loempia.module/193670/icon_image?unique=c301a64',
+    },
+    {
+      'name': 'ShurjoPay',
+      'logo':
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGhMPK0wqLrv9z2Z2NKU17pUIpadsmODtVSQ&s',
     },
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +89,8 @@ class _CheckoutState extends State<Checkout> {
               ),
             ),
             InkWell(
-              onTap: selected == null ? null : () => onButtonTap(selected ?? ''),
+              onTap:
+                  selected == null ? null : () => onButtonTap(selected ?? ''),
               child: Container(
                 height: 50,
                 width: double.infinity,

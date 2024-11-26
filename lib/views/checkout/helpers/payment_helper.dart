@@ -1,11 +1,15 @@
 import 'dart:convert';
-
 import 'package:bkash/bkash.dart';
 import 'package:flutter_sslcommerz/model/SSLCSdkType.dart';
 import 'package:flutter_sslcommerz/model/SSLCommerzInitialization.dart';
 import 'package:flutter_sslcommerz/model/SSLCurrencyType.dart';
 import 'package:flutter_sslcommerz/sslcommerz.dart';
 import 'package:get/get.dart';
+import 'package:shurjopay/models/config.dart';
+import 'package:shurjopay/models/payment_verification_model.dart';
+import 'package:shurjopay/models/shurjopay_request_model.dart';
+import 'package:shurjopay/models/shurjopay_response_model.dart';
+import 'package:shurjopay/shurjopay.dart';
 import 'package:uddoktapay/models/customer_model.dart';
 import 'package:uddoktapay/models/request_response.dart';
 import 'package:uddoktapay/uddoktapay.dart';
@@ -22,6 +26,10 @@ void onButtonTap(String selected) async {
 
     case 'sslcommerz':
       sslcommerz();
+      break;
+
+    case 'shurjopay':
+      shurjoPay();
       break;
 
     default:
@@ -78,7 +86,6 @@ void uddoktapay() async {
 
 /// SslCommerz
 void sslcommerz() async {
-
   Sslcommerz sslcommerz = Sslcommerz(
     initializer: SSLCommerzInitialization(
       multi_card_name: "visa,master,bkash",
@@ -95,7 +102,6 @@ void sslcommerz() async {
   final response = await sslcommerz.payNow();
 
   if (response.status == 'VALID') {
-
     print(jsonEncode(response));
 
     print('Payment completed, TRX ID: ${response.tranId}');
@@ -109,5 +115,65 @@ void sslcommerz() async {
   if (response.status == 'FAILED') {
     print('Payment failed');
   }
+}
+
+void shurjoPay() async {
+  final shurjoPay = ShurjoPay();
+
+  final paymentResponse = await shurjoPay.makePayment(
+    context: Get.context!,
+    shurjopayRequestModel: ShurjopayRequestModel(
+      configs: ShurjopayConfigs(
+        prefix: 'NOK',
+        userName: 'sp_sandbox',
+        password: 'pyyk97hu&6u6',
+        clientIP: '127.0.0.1',
+      ),
+      currency: 'BDT',
+      amount: totalPrice,
+      orderID: 'test00255588',
+      customerName: 'Md Shirajul Islam',
+      customerPhoneNumber: '+8801700000000',
+      customerAddress: 'Dhaka, Bangladesh',
+      customerCity: 'Dhaka',
+      customerPostcode: '1000',
+      returnURL: 'url',
+      cancelURL: 'url',
+    ),
+  );
+
+
+  if (paymentResponse.status == true) {
+
+    try {
+
+      final verifyResponse = await shurjoPay.verifyPayment(orderID: paymentResponse.shurjopayOrderID!);
+
+      if (verifyResponse.spCode == '1000') {
+        print(verifyResponse.bankTrxId);
+      } else {
+        print(verifyResponse.spMessage);
+      }
+
+      // if (verifyResponse.bankTrxId == null || verifyResponse.bankTrxId!.isEmpty || verifyResponse.bankTrxId == '') {
+      //
+      //   print('Something is wrong with your payment');
+      //
+      // }
+      // else {
+      //
+      //   print(verifyResponse.bankTrxId);
+      //   print(verifyResponse.message);
+      //
+      // }
+
+
+    } catch (e) {
+      print(e);
+    }
+
+
+  }
+
 
 }
