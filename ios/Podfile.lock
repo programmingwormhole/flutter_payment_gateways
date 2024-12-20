@@ -2,25 +2,48 @@ PODS:
   - Flutter (1.0.0)
   - flutter_sslcommerz (2.0.4):
     - Flutter
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
+  - razorpay-pod (1.3.13)
+  - razorpay_flutter (1.1.10):
+    - Flutter
+    - razorpay-pod
+  - Toast (4.1.1)
   - webview_flutter_wkwebview (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_sslcommerz (from `.symlinks/plugins/flutter_sslcommerz/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - razorpay_flutter (from `.symlinks/plugins/razorpay_flutter/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
+
+SPEC REPOS:
+  trunk:
+    - razorpay-pod
+    - Toast
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_sslcommerz:
     :path: ".symlinks/plugins/flutter_sslcommerz/ios"
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+  razorpay_flutter:
+    :path: ".symlinks/plugins/razorpay_flutter/ios"
   webview_flutter_wkwebview:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_sslcommerz: 3650a63787c365e287d847593ac9934058152daf
+  fluttertoast: e9a18c7be5413da53898f660530c56f35edfba9c
+  razorpay-pod: def525ccff21db4382808c99503d863ad0640243
+  razorpay_flutter: 84b3bfd206ae9c9c2a9ba585524a1b3d8102b6c1
+  Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   webview_flutter_wkwebview: 2a23822e9039b7b1bc52e5add778e5d89ad488d1
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796

@@ -5,6 +5,7 @@ import 'package:flutter_sslcommerz/model/SSLCommerzInitialization.dart';
 import 'package:flutter_sslcommerz/model/SSLCurrencyType.dart';
 import 'package:flutter_sslcommerz/sslcommerz.dart';
 import 'package:get/get.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:shurjopay/models/config.dart';
 import 'package:shurjopay/models/payment_verification_model.dart';
 import 'package:shurjopay/models/shurjopay_request_model.dart';
@@ -30,6 +31,10 @@ void onButtonTap(String selected) async {
 
     case 'shurjopay':
       shurjoPay();
+      break;
+
+    case 'razorpay':
+      razorPay();
       break;
 
     default:
@@ -142,12 +147,10 @@ void shurjoPay() async {
     ),
   );
 
-
   if (paymentResponse.status == true) {
-
     try {
-
-      final verifyResponse = await shurjoPay.verifyPayment(orderID: paymentResponse.shurjopayOrderID!);
+      final verifyResponse = await shurjoPay.verifyPayment(
+          orderID: paymentResponse.shurjopayOrderID!);
 
       if (verifyResponse.spCode == '1000') {
         print(verifyResponse.bankTrxId);
@@ -166,14 +169,43 @@ void shurjoPay() async {
       //   print(verifyResponse.message);
       //
       // }
-
-
     } catch (e) {
       print(e);
     }
-
-
   }
+}
 
+void razorPay() async {
+  final razorPay = Razorpay();
 
+  var options = {
+    'key': 'rzp_test_HJG5Rtuy8Xh2NB',
+    'amount': totalPrice,
+    'name': 'Acme Corp.',
+    'description': 'Fine T-Shirt',
+    'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'}
+  };
+
+  try {
+    razorPay.open(options);
+
+    razorPay.on(
+      Razorpay.EVENT_PAYMENT_SUCCESS,
+      (PaymentSuccessResponse response) {
+        print('Payment success');
+        print(response.paymentId);
+      },
+    );
+
+    razorPay.on(
+      Razorpay.EVENT_PAYMENT_ERROR,
+          (PaymentFailureResponse response) {
+        print('Payment failed');
+        print(response.message);
+      },
+    );
+
+  } catch (e) {
+    print('Error ${e.toString()}');
+  }
 }

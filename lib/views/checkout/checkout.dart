@@ -32,6 +32,11 @@ class _CheckoutState extends State<Checkout> {
       'logo':
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGhMPK0wqLrv9z2Z2NKU17pUIpadsmODtVSQ&s',
     },
+    {
+      'name': 'RazorPay',
+      'logo':
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX_ZUKUT0JfSN8NHyaVBIlwr7MHsdrvSvopQ&s',
+    },
   ];
 
   @override
